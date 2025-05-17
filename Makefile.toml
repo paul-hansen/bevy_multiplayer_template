@@ -1,0 +1,10 @@
+[tasks.run-two]
+run_task = { name = ["client", "server"], fork = true, parallel = true }
+
+[tasks.client]
+command = "cargo"
+args = ["run", "${@}", "--", "join", "--port={{default_port}}"]
+
+[tasks.server]
+command = "cargo"
+args = ["run", "${@}", "--", "host", "--port={{default_port}}"]

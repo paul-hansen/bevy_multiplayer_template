@@ -1,0 +1,26 @@
+# {{ project-name }}
+
+{% if license != "None" %}
+## License
+
+Licensed under{%- if license == "MIT OR Apache-2.0" %} either of{% endif %}
+{% if license != "MIT" %}
+ * Apache License, Version 2.0
+   ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+{%- endif %}
+{%- if license != "Apache-2.0" %}
+ * MIT license
+   ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+{%- endif %}
+
+at your option.
+
+
+## Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you {%- if license contains "Apache-2.0" %}, as
+defined in the Apache-2.0 license,{% endif %} shall be 
+{%- if license contains "OR" %} dual{% endif %} licensed as above, without any 
+additional terms or conditions.
+{% endif %}

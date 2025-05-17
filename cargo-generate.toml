@@ -1,0 +1,23 @@
+[template]
+exclude = ["assets/"]
+cargo_generate_version = ">=0.23.3"
+
+[placeholders]
+license = { type = "string", prompt = "What license to use?", choices = [
+    "None",
+    "MIT OR Apache-2.0",
+    "MIT",
+    "Apache-2.0",
+], default = "None" }
+default_port = { type = "string", prompt = "What should the default network port be? (1024-49152)" }
+color_eyre = { type = "bool", prompt = "Enable color backtraces with color-eyre?", default = true }
+egui_inspector = { type = "bool", prompt = "Add bevy_egui_inspector with a dev feature?", default = true }
+
+[conditional.'license != "MIT OR Apache-2.0" && license != "MIT" && license != "Apache-2.0"']
+ignore = ["./LICENSE-APACHE", "./LICENSE-MIT"]
+
+[conditional.'license == "MIT"']
+ignore = ["./LICENSE-APACHE"]
+
+[conditional.'license == "Apache-2.0"']
+ignore = ["./LICENSE-MIT"]
